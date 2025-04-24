@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "composite": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": true,
+    "paths": {}
+  },
+  "include": [
+    "apps/*/src",
+    "apps/*/test",
+    "packages/*/src",
+    "packages/*/test",
+    "packages/interfaces",
+    "packages/configuration"
+  ],
+  "exclude": ["node_modules", "**/dist", "**/build"]
+}

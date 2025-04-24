@@ -1,0 +1,32 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint_prettier:
+      run: |
+        # Run ESLint with auto-fix on staged JavaScript/TypeScript files
+        npx eslint --fix {staged_files} && \
+        # Run Prettier to format the staged files
+        npx prettier --write {staged_files} && \
+        # Re-add the files to the staging area after formatting
+        git add {staged_files}
+        # Refresh the index to ensure the changes are reflected
+        git update-index --again
+      include: "\\.(js|jsx|ts|tsx|json|css|scss|md)$"
+      required: true
+
+prepare-commit-msg:
+  commands:
+    audit_security:
+      run: |
+        yarn audit --level moderate || echo "Security vulnerabilities found, please resolve"
+
+    commitzen:
+      interactive: true
+      run: git cz
+      env:
+        LEFTHOOK: 0
+
+commit-msg:
+  commands:
+    "lint commit message":
+      run: yarn commitlint --edit {1}
