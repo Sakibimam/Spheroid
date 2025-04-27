@@ -50,7 +50,7 @@ We are using the Blockscout contract verification.
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/exponentium/monorepo.git
+git clone https://github.com/Sakibimam/Spheroid.git
 cd monorepo
 ```
 
